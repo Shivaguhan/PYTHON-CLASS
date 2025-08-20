@@ -1,0 +1,32 @@
+import pygame
+
+pygame.init()
+screen = pygame.display.set_mode((1000, 500))
+pygame.display.set_caption("Pygame Text Example")
+
+runing = True
+while runing:
+    screen.fill((255, 255, 255))  # White background\
+
+    # Defult font, Black
+    font1 = pygame.font.SysFont(None, 50)
+    font1 = font1.render("Hi I am Shivaguhan", True, (0, 0, 0))
+    screen.blit(font1, (0, 100))
+
+    # Comic Sans font, Red
+    font2 = pygame.font.SysFont("comicsansms", 60)
+    font2 = font2.render("I am Studing 5 - 'A'", True, (255, 0, 0))
+    screen.blit(font2, (0, 150))
+
+    # Arial font, Blue
+    font3 = pygame.font.SysFont("arial", 30)
+    font3 = font3.render("I am in PSG MATRICULATION SCHOOL", True, (0, 255, 0))
+    screen.blit(font3, (0, 190))
+
+    pygame.display.update()
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.quit()
