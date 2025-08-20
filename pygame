@@ -1,0 +1,28 @@
+import pygame
+pygame.init()
+
+screen = pygame.display.set_mode((600, 400))
+pygame.display.set_caption("Pygame window")
+
+white = (255, 255, 255)
+black = (0, 0, 0)
+blue = (0, 0, 102)
+
+# First perameter is the surface(where to draw),second is the color,third is the cordinates
+screen.fill(black)
+pygame.draw.rect(screen, white, (300, 100, 50, 50))
+pygame.draw.ellipse(screen, white, (10, 150, 120, 160))
+pygame.draw.circle(screen, white, (200, 100), 50)
+pygame.draw.rect(screen, white, (100, 150, 150, 100))
+# Start position,end postton,width-thtckness of the line
+pygame.draw.line(screen, blue, (400, 0), (400, 450), 10)
+pygame.draw.polygon(screen, blue, ((250, 100), (150, 380), (350, 350)))
+pygame.display.update()
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.quit()
