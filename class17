@@ -1,0 +1,30 @@
+import turtle
+import random
+
+
+screen = turtle.Screen()
+screen.bgcolor("black")
+t = turtle.Turtle()
+t.speed(0)
+turtle.colormode(255)
+
+def draw_art():
+  for _ in range(70):
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    t.color(r, g, b)
+
+  size = random.randint(20, 100)
+
+  sides = random.randint(3, 8)
+
+  for _ in range(sides):
+    t.forward(size)
+    t.right(360 / sides)
+
+  t.right(10)
+
+draw_art()
+
+turtle.done()
