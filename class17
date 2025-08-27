@@ -15,15 +15,15 @@ def draw_art():
     b = random.randint(0, 255)
     t.color(r, g, b)
 
-  size = random.randint(20, 100)
+    size = random.randint(20, 100)
 
-  sides = random.randint(3, 8)
+    sides = random.randint(3, 8)
 
-  for _ in range(sides):
-    t.forward(size)
-    t.right(360 / sides)
+    for _ in range(sides):
+      t.forward(size)
+      t.right(360 / sides)
 
-  t.right(10)
+    t.right(10)
 
 draw_art()
 
