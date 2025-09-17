@@ -1,0 +1,65 @@
+import pygame
+import random
+pygame.init()
+
+width, hight = 500, 500
+screen = pygame.display.set_mode(width, hight)
+pygame.display.set_caption("Pygame ball catching")
+
+white = (255, 255, 255)
+black = (0, 0, 0)
+red =  (0, 0, 255)
+
+basket_width, basket_width = 80, 20
+basket_x = width // 2 - basket_width // 2
+basket_y  = hight - 40
+basket_speed = 7
+
+ball_radius = 15
+ball_x = random.randint(ball_radius, width - ball_radius)
+ball_y = ball_radius
+ball_speed = 5
+
+score = 0
+font = pygame.font.Font(None, 36)
+
+running = True
+while running:
+  pygame.time.delay(30)
+
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      running = False
+      
+keys = pygame.key.get_pressed()
+if keys[pygame.K_LEFT] and basket_x > 0:
+   basket_x -= basket_speed
+if keys[pygame.K_RIGHT] and basket_x < width - basket_width:
+  basket_x += basket_speed
+
+  ball_y += basket_speed
+
+#check catch
+#basket_y=top edge of the basket
+# basket ==200
+#ball center = 230
+
+#basket_x=left edge of the basket
+#basket_x+basket_widht=right edge of the basket
+#ball_x =>center of the ball
+if (basket_y < ball_y + ball_radius < basket_y + basket_hieght and basket_x < ball_x < basket_x + basket_width):
+  score += 1
+  ball_x = random.randint(ball_radius, width - ball_radius)
+  ball_y = ball_radius
+
+  screen.fill(white)
+  pygame.draw.rect(screen, red, (basket_x, basket_y, basket_width, basket_hieght))
+  pygame.draw.circle(screen, black, (ball_x, ball_y), ball_radius)
+
+  text = font.render("Score: " + str(score), True, 0, 0, 0)
+  screen.blit(text, (10, 10))
+
+  pygame.display.update()
+
+pygame.QUIT
+
