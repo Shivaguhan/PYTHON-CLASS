@@ -1,0 +1,32 @@
+import pygame
+import random
+
+pygame.init()
+
+screen_width = 800
+screen_height = 600
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Escape the cube")
+
+white = 255, 255, 255
+red = 255, 0, 0
+green = 0, 255, 0
+yellow = 230, 184, 0
+
+green_cube_x = 50
+green_cube_y = 200
+green_cube = 100
+
+running = True
+while running:
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      running = False
+
+  screen.fill(white)
+
+  pygame.draw.rect(screen, green,
+                   (green_cube_x, green_cube_y, green_cube, green_cube))
+  pygame.display.update()
+
+pygame.quit()
